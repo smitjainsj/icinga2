@@ -1,5 +1,5 @@
+class icinga2 {
 
-class basemod {
-
-	include basemod::icinga2
+include icinga2web
+include files
 }

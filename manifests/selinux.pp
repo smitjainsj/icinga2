@@ -1,4 +1,4 @@
-class basemod::selinux {
+class icinga2::selinux {
 
         exec { '/tmp/reboot':
                 path    => "/usr/bin:/bin:/sbin",

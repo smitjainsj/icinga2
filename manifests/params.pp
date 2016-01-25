@@ -1,24 +1,24 @@
-class basemod::params {
+class icinga2::params {
 
-######### NTP params
-
-$ntp_package            = 'ntp'
 
 ########## MySQL Params
 $mysql_package		= 'mysql-server'
 $host                   = 'localhost'
+$git_package		= 'git'
 $icinga2_package	= 'icinga2'
 $icinga2_service	= 'icinga2'
-$git_package		= 'git'
 $icinga2_dbname         = 'icinga'
 $icinga2_dbuser         = $icinga2_dbname
 $icinga2_dbpass         = $icinga2_dbname
 $icinga2_ido		= 'icinga2-ido-mysql'
 $icinga2_ido_module	= 'ido-mysql'
-
-
-
-
+$icinga2web_package	= 'icingaweb2'
+$icinga2web_grp		= $icinga2web_package
+$icinga2cli_cmd		= 'icingacli'
+$icinga2web_dbname      = $icinga2web_package
+$icinga2web_dbuser      = $icinga2web_dbname
+$icinga2web_dbpass	= $icinga2web_dbpass
+$icinga2web_pass_hash 	= '$1$uPpTZFoO$LGd20BllQfHm9S4/RgJHI/'
 
 case $::operatingsystem {
 
@@ -28,7 +28,9 @@ case $::operatingsystem {
 	$ssh_service    = 'sshd'
 	$mysql_service  = 'mysqld'
 	$apcahe_package	= 'httpd'
-	$apcahe_service = $apache_package		
+	$apcahe_service = $apache_package
+	$apache_user	= 'apache'
+			
 
        }
 
@@ -38,7 +40,8 @@ case $::operatingsystem {
 	$ssh_service = 'ssh'
 	$mysql_service  = 'mysql'
 	$apache_package = 'apache2'
-	$apache_service = $apache_package
+	$apache_service = $apache_packagea
+	$apache_user	= 'www-data'
   	}
 
 

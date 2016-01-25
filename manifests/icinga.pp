@@ -1,11 +1,11 @@
 ############# This Class will install ICINGA2,APACHE,MYSQL,GIT
 #############
 
-class basemod::icinga2 inherits basemod::params
+class icinga2::icinga inherits icinga2::params
 
 {
-# class { 'basemod::selinux': }
- class { 'basemod::mysql': }      
+# class { 'icinga2::selinux': }
+ class { 'icinga2::mysql': }      
 	
 
 	$packages = [ $icinga2_package,
@@ -18,7 +18,7 @@ class basemod::icinga2 inherits basemod::params
 		require => Package[$mysql_package],
 		}
 
-	service { ['$icinga2_service','$apache_service'] :
+	service { ["$icinga2_service","$apache_service"] :
                ensure => running,
                enable => true,
                require => Package[$icinga2_package],
