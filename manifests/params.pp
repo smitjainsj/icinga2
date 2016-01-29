@@ -18,7 +18,7 @@ $icinga2cli_cmd		= 'icingacli'
 $icinga2web_dbname      = $icinga2web_package
 $icinga2web_dbuser      = $icinga2web_dbname
 $icinga2web_dbpass	= $icinga2web_dbpass
-$icinga2web_pass_hash 	= '$1$uPpTZFoO$LGd20BllQfHm9S4/RgJHI/'
+$icinga2web_pass_hash 	= '$1$d4KmuHdx$m2HdTKIwENqiVmTHLBUZs/'
 
 case $::operatingsystem {
 
@@ -27,8 +27,8 @@ case $::operatingsystem {
 	$ntp_service    = 'ntpd'
 	$ssh_service    = 'sshd'
 	$mysql_service  = 'mysqld'
-	$apcahe_package	= 'httpd'
-	$apcahe_service = $apache_package
+	$apache_package	= 'httpd'
+	$apache_service = $apache_package
 	$apache_user	= 'apache'
 			
 
@@ -40,7 +40,7 @@ case $::operatingsystem {
 	$ssh_service = 'ssh'
 	$mysql_service  = 'mysql'
 	$apache_package = 'apache2'
-	$apache_service = $apache_packagea
+	$apache_service = $apache_package
 	$apache_user	= 'www-data'
   	}
 
