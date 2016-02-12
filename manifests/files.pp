@@ -2,7 +2,7 @@ class icinga2::files inherits icinga2::params
 
 {
 
-file { [ '/etc/icingaweb2/modules', '/etc/icingaweb2/modules/monitoring', ] :
+file { [ '/etc/icingaweb2/','/etc/icingaweb2/modules', '/etc/icingaweb2/modules/monitoring', ] :
 	ensure => 'directory' ,
 	owner => 'root',
 	recurse => 'true',
@@ -22,6 +22,22 @@ file {
 	
 	'/etc/icingaweb2/config.ini':
 	source => 'puppet:///modules/icinga2/config.ini' ;
+	
+	'/etc/icingaweb2/authentication.ini':
+	source  => 'puppet:///modules/icinga2/authentication.ini' ;
+	
+	'/etc/icingaweb2/roles.ini':
+	source => 'puppet:///modules/icinga2/roles.ini' ;
+
+	'/etc/icingaweb2/modules/monitoring/config.ini':
+	source  => 'puppet:///modules/icinga2/monitor_config.ini' ;
+	
+	'/etc/icingaweb2/modules/monitoring/backends.ini':
+	source => 'puppet:///modules/icinga2/backends.ini' ;
+	
+	'/etc/icingaweb2/modules/monitoring/commandtransports.ini':
+	source  => 'puppet:///modules/icinga2/commandtransports.ini' ;
+	
 	
 	}
 	
