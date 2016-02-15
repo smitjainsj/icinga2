@@ -2,7 +2,7 @@ class icinga2 {
 	include repo
 	include mysql
 	include icinga
-	include icinga2web
+#	include icinga2web
 #	include files
 #	include git_repo
 

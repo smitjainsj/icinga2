@@ -19,6 +19,11 @@ $icinga2web_dbname      = $icinga2web_package
 $icinga2web_dbuser      = $icinga2web_dbname
 $icinga2web_dbpass	= $icinga2web_dbpass
 $icinga2web_pass_hash 	= '$1$d4KmuHdx$m2HdTKIwENqiVmTHLBUZs/'
+$document_root  	= '/usr/share/icingaweb2/public'	
+$usermod		= '/usr/bin/usermod -a -G'
+$mysql_icinga2_schema	= '/usr/share/icinga2-ido-mysql/schema/mysql.sq'
+
+
 
 case $::operatingsystem {
 
@@ -30,9 +35,9 @@ case $::operatingsystem {
 	$apache_package	= 'httpd'
 	$apache_service = $apache_package
 	$apache_user	= 'apache'
-			
-
-       }
+	$apache_conf	= '/etc/apache2/conf-available/icingaweb2.conf'
+	$groupadd	= '/usr/sbin/groupadd -r'
+}
 
   'Debian', 'Ubuntu': {
 
@@ -42,6 +47,10 @@ case $::operatingsystem {
 	$apache_package = 'apache2'
 	$apache_service = $apache_package
 	$apache_user	= 'www-data'
+	$apache_conf	= '/etc/httpd/conf.d/icingaweb2.conf'
+	$groupadd	= '/usr/sbin/addgroup --system'
+	
+
   	}
 
 

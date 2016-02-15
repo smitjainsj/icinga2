@@ -14,18 +14,12 @@ class icinga2::mysql inherits icinga2::params
                 require => Package[$mysql_package],
                 }
 
-	exec { 'Creating DB Icinga2':
-
-	 path    => ['/usr/sbin/','/usr/bin/','/bin','/usr/local/bin',],
-
-	 command => "mysql -uroot -e  \"create database ${icinga2_dbname} ; \
-	 GRANT ALL  ON ${icinga2_dbname}.* TO  ${icinga2_dbuser}@${host} IDENTIFIED BY  '${icinga2_dbpass}' ; \" ; \
-	 mysql -uroot  ${icinga2_dbname} < /usr/share/icinga2-ido-mysql/schema/mysql.sql ; " , 
-
-
-	 require => Service[$mysql_service],
-	
-	}
+##	exec { 'Creating DB Icinga2':
+##	path    => ['/usr/sbin/','/usr/bin/','/bin','/usr/local/bin',],
+##	command => "mysql -uroot -e  \"create database ${icinga2_dbname} ; \
+##	GRANT ALL  ON ${icinga2_dbname}.* TO  ${icinga2_dbuser}@${host} IDENTIFIED BY  '${icinga2_dbpass}' ; \" ; \
+##	mysql -uroot  ${icinga2_dbname} < /usr/share/icinga2-ido-mysql/schema/mysql.sql ; " , 
+##	require => Service[$mysql_service],		}
 
 }	
 
