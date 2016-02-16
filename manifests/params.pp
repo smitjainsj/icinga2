@@ -18,10 +18,11 @@ $icinga2cli_cmd		= 'icingacli'
 $icinga2web_dbname      = $icinga2web_package
 $icinga2web_dbuser      = $icinga2web_dbname
 $icinga2web_dbpass	= $icinga2web_dbpass
-$icinga2web_pass_hash 	= '$1$JSnneGDN$v8G3V1BSBTlzszBMh84Ed.'
+$icinga2web_pass_hash 	= '$1$4ZteytN4$XvXT/VHjxYJw2Wl8p0NTX0'
 $document_root  	= '/usr/share/icingaweb2/public'	
-$usermod		= '/usr/bin/usermod -a -G'
+$usermod		= '/usr/sbin/usermod -a -G'
 $mysql_icinga2_schema	= '/usr/share/icinga2-ido-mysql/schema/mysql.sql'
+$mysql_icinga2web_schema	= '/usr/share/icingaweb2/icingaweb2/etc/schema/mysql.schema.sql'
 
 
 
@@ -35,7 +36,7 @@ case $::operatingsystem {
 	$apache_package	= 'httpd'
 	$apache_service = $apache_package
 	$apache_user	= 'apache'
-	$apache_conf	= '/etc/apache2/conf-available/icingaweb2.conf'
+	$apache_conf	= '/etc/httpd/conf.d/icingaweb2.conf'
 	$groupadd	= '/usr/sbin/groupadd -r'
 }
 
@@ -47,7 +48,7 @@ case $::operatingsystem {
 	$apache_package = 'apache2'
 	$apache_service = $apache_package
 	$apache_user	= 'www-data'
-	$apache_conf	= '/etc/httpd/conf.d/icingaweb2.conf'
+	$apache_conf	= '/etc/apache2/conf-available/icingaweb2.conf'
 	$groupadd	= '/usr/sbin/addgroup --system'
 	
 
