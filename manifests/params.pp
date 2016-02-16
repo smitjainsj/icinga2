@@ -18,12 +18,11 @@ $icinga2cli_cmd		= 'icingacli'
 $icinga2web_dbname      = $icinga2web_package
 $icinga2web_dbuser      = $icinga2web_dbname
 $icinga2web_dbpass	= $icinga2web_dbpass
-$icinga2web_pass_hash 	= '$1$4ZteytN4$XvXT/VHjxYJw2Wl8p0NTX0'
+$icinga2web_pass_hash 	= '$1$Ry1h.HSh$rPPMYX0iAhq9pRXczFIQZ1'
 $document_root  	= '/usr/share/icingaweb2/public'	
 $usermod		= '/usr/sbin/usermod -a -G'
 $mysql_icinga2_schema	= '/usr/share/icinga2-ido-mysql/schema/mysql.sql'
 $mysql_icinga2web_schema	= '/usr/share/icingaweb2/icingaweb2/etc/schema/mysql.schema.sql'
-
 
 
 case $::operatingsystem {

@@ -4,16 +4,16 @@ class icinga2::files inherits icinga2::params
 
 file { [ '/etc/icingaweb2/modules', '/etc/icingaweb2/modules/monitoring', ] :
 					         ensure => 'directory' ,
-					         owner => 'root',
+					         owner => $apache_user,
 					         recurse => 'true',
-					         group => 'root',
-					         mode => '0750',
+					         group => $icinga2web_grp,
+					         mode => '0755',
 					         }
 
 File {
 	ensure => 'present' ,
-        owner  => 'root',
-        group  => 'root',
+        owner  => $apache_user,
+        group  => $icinga2web_grp,
         mode   => '0644',
 }
 file {  
