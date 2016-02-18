@@ -2,6 +2,7 @@ class icinga2::files inherits icinga2::params
 
 {
 
+
 file { [ '/etc/icingaweb2/modules', '/etc/icingaweb2/modules/monitoring', ] :
          ensure => 'directory' ,
          owner => $apache_user,
@@ -15,6 +16,7 @@ File {
         owner  => $apache_user,
         group  => $icinga2web_grp,
         mode   => '0755',
+	require => Package[$icinga2web_package],
 }
 file {  
 	'/etc/icingaweb2/resources.ini':
@@ -37,7 +39,6 @@ file {
 	
 	'/etc/icingaweb2/modules/monitoring/commandtransports.ini':
 	source  => 'puppet:///modules/icinga2/commandtransports.ini' ;
-	
 	
 	}
 	
