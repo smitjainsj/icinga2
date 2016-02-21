@@ -1,0 +1,7 @@
+---
+:backends: - yaml
+
+:hierarchy:
+
+:yaml:
+ :datadir:/etc/puppet/modules/icinga2/data

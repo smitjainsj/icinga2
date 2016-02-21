@@ -18,6 +18,4 @@ class icinga2::icinga inherits icinga2::params
 		enable => true,
 		require => Package[$icinga2_package],	
 	}
-
-
 }

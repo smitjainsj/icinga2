@@ -1,6 +1,8 @@
 class icinga2::params {
 
 
+Exec { path => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/', '/usr/local/bin', ] }
+
 ########## MySQL #########
 $mysql_package		= 'mysql-server'
 $mysql_client		= 'mysql-client'
@@ -29,7 +31,6 @@ $document_root  	= '/usr/share/icingaweb2/public'
 $usermod		= '/usr/sbin/usermod -a -G'
 $mysql_icinga2_schema	= '/usr/share/icinga2-ido-mysql/schema/mysql.sql'
 $mysql_icinga2web_schema	= '/usr/share/icingaweb2/icingaweb2/etc/schema/mysql.schema.sql'
-
 
 ###### OS BASED ##########
 
