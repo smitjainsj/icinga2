@@ -1,7 +1,8 @@
 class icinga2::params {
 
-
-Exec { path => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/', '/usr/local/bin', ] }
+Exec {
+	path => ['/usr/bin/', '/sbin','/usr/local/bin','/bin', '/usr/sbin', ] 
+}
 
 ########## MySQL #########
 $mysql_package		= 'mysql-server'
@@ -23,14 +24,14 @@ $icinga2web_grp		= $icinga2web_package
 $icinga2cli_cmd		= 'icingacli'
 $icinga2web_dbname      = $icinga2web_package
 $icinga2web_dbuser      = $icinga2web_dbname
-$icinga2web_dbpass	= $icinga2web_dbpass
-$icinga2web_pass_hash 	= '$1$RHJ4audO$2ctxm4EeJtzZnHw/JlDPO0'
+$icinga2web_dbpass	= $icinga2web_dbuser
+$icinga2web_pass_hash 	= '$1$dobn2sRA$PlheLKf/Trq7I1o/QF1OU0'
 
 ####### OTHERS #########
 $document_root  	= '/usr/share/icingaweb2/public'	
-$usermod		= '/usr/sbin/usermod -a -G'
+$usermod		= 'usermod -a -G'
 $mysql_icinga2_schema	= '/usr/share/icinga2-ido-mysql/schema/mysql.sql'
-$mysql_icinga2web_schema	= '/usr/share/icingaweb2/icingaweb2/etc/schema/mysql.schema.sql'
+$mysql_icinga2web_schema = '/usr/share/icingaweb2/icingaweb2/etc/schema/mysql.schema.sql'
 
 ###### OS BASED ##########
 
@@ -45,8 +46,9 @@ case $::operatingsystem {
 	$apache_service = $apache_package
 	$apache_user	= 'apache'
 	$apache_conf	= '/etc/httpd/conf.d/icingaweb2.conf'
-	$groupadd	= '/usr/sbin/groupadd -r'
+	$groupadd	= 'groupadd -r'
 	$webserver_grp	= 'nagios'
+
 }
 
   'Debian', 'Ubuntu': {
@@ -58,9 +60,9 @@ case $::operatingsystem {
 	$apache_service = $apache_package
 	$apache_user	= 'www-data'
 	$apache_conf	= '/etc/apache2/conf-available/icingaweb2.conf'
-	$groupadd	= '/usr/sbin/addgroup --system'
+	$groupadd	= 'addgroup --system'
 	$webserver_grp	= 'nagios'
-
+	$update 	= 'update-rc.d apache2 defaults'
   	}
 
 

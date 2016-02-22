@@ -1,7 +1,9 @@
 
 class icinga2::icinga inherits icinga2::params
 
-{ 
+{
+	contain icinga2::repo
+ 
 	$packages = [ $icinga2_package,
                 $git_package,
 		$apache_package,
@@ -15,7 +17,11 @@ class icinga2::icinga inherits icinga2::params
 	
 	service { $services :                
 		ensure => running,
-		enable => true,
-		require => Package[$icinga2_package],	
+    		enable => true,
+		require => Package[$apache_package],	
+		notify => Exec['apache2-update'],
 	}
+		exec{ 'apache2-update': command => "$update", }
 }
+
+

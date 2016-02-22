@@ -3,6 +3,8 @@ class icinga2::files inherits icinga2::params
 {
 
 
+contain icinga2::icingaweb2
+
 file { [ '/etc/icingaweb2/modules', '/etc/icingaweb2/modules/monitoring', ] :
          ensure => 'directory' ,
          owner => $apache_user,

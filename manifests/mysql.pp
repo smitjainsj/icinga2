@@ -1,12 +1,16 @@
 class icinga2::mysql inherits icinga2::params
 
  {
-
-       $packages = [ $mysql_package, $mysql_client, $icinga2_ido,]
+	contain icinga2::icinga
+	contain icinga2::git
+       $pack1 = [ $mysql_package, $mysql_client ]
         
-	package { $packages: 
+	package { $pack1: 
 		ensure => installed, 
+		require => Package[$apache_package],
 		}
+
+	package { $icinga2_ido : ensure => installed , require => Package[$mysql_package], } 	 
 
 	service { $mysql_service:
                 ensure => running,
