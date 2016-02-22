@@ -1,4 +1,4 @@
-class icinga2::repo    
+class icinga2::repo  inherits icinga2::params 
 {
  exec { 'icinga2-repo':
                   unless => '/usr/bin/apt-key list |  grep icinga' ,
