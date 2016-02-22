@@ -1,12 +1,18 @@
 ###################################################################
 
-This module will be containing all the test modules on Ubuntu 15.10 .
+This Module Works for Ubuntu 14.x & 15.x
 
-As of now these are the modules which are being added here.
+This module is depends upon VCSREPO Module. Use the below command to download the module.
 
-papply : For automating the puppet apply
+$puppet module install puppetlabs-vcsrepo
 
-mysql : Install MySQL Server
+This will install Icinga2 core with Icingaweb2 Interface and MySQL as a backend.
 
+For web login : http://yourhostip/icingaweb2
 
+Credentials : icingaadmin/icingaadmin
+
+Do update the hash code in params.pp before running the module . Use the below command to generate the HASH for the password.
+
+$openssl passwd -1 icingaadmin
 
