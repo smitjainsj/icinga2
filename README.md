@@ -1,12 +1,12 @@
 ###################################################################
 
-This module will be containing all the test modules on Ubuntu 15.10 .
+This Module Works for Ubuntu 14.x & 15.x
 
-As of now these are the modules which are being added here.
+This will install Icinga2 core with Icingaweb2 Interface and MySQL as a backend.
 
-papply : For automating the puppet apply
+For web login : http://<hostip>/icingaweb2
+credentails : icingaadmin/icingaadmin
 
-mysql : Install MySQL Server
-
-
+Do update the hash code in params.pp before running the module . Use the below command to generate the HASH for the password.
+$openssl passwd -1 icingaadmin
 
