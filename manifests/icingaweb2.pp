@@ -31,7 +31,7 @@ class icinga2::icingaweb2 inherits icinga2::params
 		command => "mysql -uroot -e  \"create database ${icinga2web_dbname} ; \
                         GRANT ALL  ON ${icinga2web_dbname}.* TO  ${icinga2web_dbuser}@${host} IDENTIFIED BY '${icinga2web_dbpass}' ;\" ; \
                         mysql -uroot  ${icinga2web_dbname} < $mysql_icinga2web_schema ; \
-                        mysql -uroot $icinga2web_dbname  -e \"INSERT INTO icingaweb_user (name, active, password_hash) VALUES ('icingaadmin',1,'$icinga2web_pass_hash');\" " ,
+                    mysql -uroot $icinga2web_dbname  -e 'INSERT INTO icingaweb_user (name, active, password_hash) VALUES (\"icingaadmin\",1,\"$icinga2web_pass_hash\");' " ,
                         require => Exec["Configure_$icinga2web_package"],
                 }
 }

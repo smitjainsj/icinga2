@@ -1,8 +1,14 @@
 class icinga2::params {
 
+# Global Path for all the commands
+
 Exec {
 	path => ['/usr/bin/', '/sbin','/usr/local/bin','/bin', '/usr/sbin', ] 
 }
+
+# Password Hash for Icinga Web Login 
+$icinga2web_pass_hash = generate( "/bin/bash" , "-c" , "/usr/bin/openssl passwd -1 icingaadmin  | tr -d '\n' ")
+
 
 ########## MySQL #########
 $mysql_package		= 'mysql-server'
@@ -25,7 +31,7 @@ $icinga2cli_cmd		= 'icingacli'
 $icinga2web_dbname      = $icinga2web_package
 $icinga2web_dbuser      = $icinga2web_dbname
 $icinga2web_dbpass	= $icinga2web_dbuser
-$icinga2web_pass_hash 	= '$1$I5dgCL5I$Z7VOjgmTxJsaG0ZAQ/yZA0'
+###$icinga2web_pass_hash 	= '$1$I5dgCL5I$Z7VOjgmTxJsaG0ZAQ/yZA0'
 
 ####### OTHERS #########
 $document_root  	= '/usr/share/icingaweb2/public'	
