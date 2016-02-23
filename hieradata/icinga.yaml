@@ -1,0 +1,6 @@
+---
+icinga2::path
+ - /usr/bin
+ - /sbin/
+ - /usr/sbin/
+ - /usr/local/bin

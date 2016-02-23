@@ -9,7 +9,12 @@ class icinga2::repo  inherits icinga2::params
 
      exec { 'icinga-apt-update':
              command => '/usr/bin/apt-get update',
-             refreshonly => true ,
-     }
+           ###  refreshonly => true ,##
+
+     }	
+	class{'icinga2::icinga':
+		require => Exec['icinga-apt-update'],
+	}
+	
 
 }

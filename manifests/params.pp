@@ -25,7 +25,7 @@ $icinga2cli_cmd		= 'icingacli'
 $icinga2web_dbname      = $icinga2web_package
 $icinga2web_dbuser      = $icinga2web_dbname
 $icinga2web_dbpass	= $icinga2web_dbuser
-$icinga2web_pass_hash 	= '$1$dobn2sRA$PlheLKf/Trq7I1o/QF1OU0'
+$icinga2web_pass_hash 	= '$1$I5dgCL5I$Z7VOjgmTxJsaG0ZAQ/yZA0'
 
 ####### OTHERS #########
 $document_root  	= '/usr/share/icingaweb2/public'	

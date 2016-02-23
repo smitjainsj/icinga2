@@ -2,7 +2,6 @@
 class icinga2::icinga inherits icinga2::params
 
 {
-	contain icinga2::repo
  
 	$packages = [ $icinga2_package,
                 $git_package,

@@ -1,8 +1,8 @@
 class icinga2::mysql inherits icinga2::params
 
- {
-	contain icinga2::icinga
+ {	contain icinga2::repo
 	contain icinga2::git
+
        $pack1 = [ $mysql_package, $mysql_client ]
         
 	package { $pack1: 

@@ -43,6 +43,16 @@ file {
 	source  => 'puppet:///modules/icinga2/commandtransports.ini' ;
 	
 	}
+
+file { ['/etc/icingaweb2/enabledModules'] :
+	ensure => 'directory' ,
+         owner => $apache_user,
+         recurse => 'true',
+         group => $icinga2web_grp,
+         mode => '0755',
+         }
+
+
 	
 }
 
