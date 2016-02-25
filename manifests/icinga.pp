@@ -21,6 +21,13 @@ class icinga2::icinga inherits icinga2::params
 		notify => Exec['apache2-update'],
 	}
 		exec{ 'apache2-update': command => "$update", }
+
+
+	class{'icinga2::git': 
+			require => Package[$apache_package], }
+
+
+
 }
 
 

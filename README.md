@@ -12,7 +12,4 @@ For web login : http://yourhostip/icingaweb2
 
 Credentials : icingaadmin/icingaadmin
 
-Do update the hash code in params.pp before running the module . Use the below command to generate the HASH for the password.
-
-$openssl passwd -1 icingaadmin
 
