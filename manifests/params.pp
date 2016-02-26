@@ -40,6 +40,8 @@ $mysql_icinga2_schema	= '/usr/share/icinga2-ido-mysql/schema/mysql.sql'
 $mysql_icinga2web_schema = '/usr/share/icingaweb2/icingaweb2/etc/schema/mysql.schema.sql'
 
 ###### OS BASED ##########
+case $::operatingsystemrelease { '15.10','15.04':{ $provider = 'base'} 
+				 '14.10','14.04':{ $provider = 'upstart' } }
 
 case $::operatingsystem {
 
