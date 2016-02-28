@@ -12,7 +12,6 @@ $icinga2web_pass_hash = generate( "/bin/bash" , "-c" , "/usr/bin/openssl passwd 
 
 ########## MySQL #########
 $mysql_package		= 'mysql-server'
-$mysql_client		= 'mysql-client'
 $host                   = 'localhost'
 $git_package		= 'git'
 
@@ -41,7 +40,9 @@ $mysql_icinga2web_schema = '/usr/share/icingaweb2/icingaweb2/etc/schema/mysql.sc
 
 ###### OS BASED ##########
 case $::operatingsystemrelease { '15.10','15.04':{ $provider = 'base'} 
-				 '14.10','14.04':{ $provider = 'upstart' } }
+				 '14.10','14.04':{ $provider = 'upstart' } 
+				 '6.\*' : {$provider = 'yum'} }
+			
 
 case $::operatingsystem {
 
@@ -55,7 +56,8 @@ case $::operatingsystem {
 	$apache_user	= 'apache'
 	$apache_conf	= '/etc/httpd/conf.d/icingaweb2.conf'
 	$groupadd	= 'groupadd -r'
-	$webserver_grp	= 'nagios'
+	$webserver_grp	= 'nagios'	
+	$mysql_client	= 'mysql'
 
 }
 
@@ -71,6 +73,7 @@ case $::operatingsystem {
 	$groupadd	= 'addgroup --system'
 	$webserver_grp	= 'nagios'
 	$update 	= 'update-rc.d apache2 defaults'
+	$mysql_client	= 'mysql-client'
   	}
 
 
