@@ -9,7 +9,7 @@ class icinga2::icinga inherits icinga2::params
 		]
 		
 	package { $packages: 
-		provider => $provider ,
+		##provider => $provider ,
 		ensure => installed , 
 		}
 
