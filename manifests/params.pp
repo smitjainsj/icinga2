@@ -56,8 +56,9 @@ case $::operatingsystem {
 	$apache_user	= 'apache'
 	$apache_conf	= '/etc/httpd/conf.d/icingaweb2.conf'
 	$groupadd	= 'groupadd -r'
-	$webserver_grp	= 'nagios'	
+	$webserver_grp	= 'apache'	
 	$mysql_client	= 'mysql'
+	$update		= 'chkconfig httpd on'
 
 }
 
