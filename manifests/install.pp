@@ -2,7 +2,7 @@
 class icinga2::install
 {
 
-	include icinga2::mysql
+	include icinga2::files
 
 
 }

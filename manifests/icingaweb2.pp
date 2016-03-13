@@ -4,7 +4,7 @@ class icinga2::icingaweb2 inherits icinga2::params
 {	
 	contain icinga2::mysql
 
-	$packages = [ $icinga2web_package  ]
+	$packages = [ $icinga2web_package , $icinga2cli  ]
 	
 	package { $packages: 
 		ensure => installed, 	
@@ -17,7 +17,7 @@ class icinga2::icingaweb2 inherits icinga2::params
                }
 
 	exec { "Configure_$icinga2web_package":
-                command => "cp -rv  /opt/icingaweb2/ /usr/share/icingaweb2/; \
+                command => "cp -rf  /opt/icingaweb2/ /usr/share/icingaweb2/; \
                         icingacli module enable setup ; \
                         icingacli setup config webserver apache --document-root $document_root  > $apache_conf; \
                         $usermod $icinga2web_grp $apache_user ; \

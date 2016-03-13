@@ -26,7 +26,6 @@ $icinga2_ido		= 'icinga2-ido-mysql'
 $icinga2_ido_module	= 'ido-mysql'
 $icinga2web_package	= 'icingaweb2'
 $icinga2web_grp		= $icinga2web_package
-$icinga2cli_cmd		= 'icingacli'
 $icinga2web_dbname      = $icinga2web_package
 $icinga2web_dbuser      = $icinga2web_dbname
 $icinga2web_dbpass	= $icinga2web_dbuser
@@ -56,9 +55,11 @@ case $::operatingsystem {
 	$apache_user	= 'apache'
 	$apache_conf	= '/etc/httpd/conf.d/icingaweb2.conf'
 	$groupadd	= 'groupadd -r'
-	$webserver_grp	= 'apache'	
+	$webserver_grp	= 'apache'
+	$ido_perm	= 'icinga'	
 	$mysql_client	= 'mysql'
 	$update		= 'chkconfig httpd on'
+	$icinga2cli	= 'icingacli'
 
 }
 
@@ -73,9 +74,11 @@ case $::operatingsystem {
 	$apache_conf	= '/etc/apache2/conf-available/icingaweb2.conf'
 	$groupadd	= 'addgroup --system'
 	$webserver_grp	= 'nagios'
+	$ido_perm	= 'nagios'
 	$update 	= 'update-rc.d apache2 defaults'
 	$mysql_client	= 'mysql-client'
-  	}
+	$icinga2cli = undef
+ 	}
 
 
 

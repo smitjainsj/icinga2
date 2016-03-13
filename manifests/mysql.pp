@@ -33,8 +33,8 @@ class icinga2::mysql inherits icinga2::params
 	file { '/etc/icinga2/features-available/ido-mysql.conf':
 		source => 'puppet:///modules/icinga2/ido-mysql.conf' ,
 		ensure => 'present' ,
-		owner  => $webserver_grp,
-		group  => $webserver_grp,
+		owner  => $ido_perm,
+		group  => $ido_perm,
 		mode   => '0600',
 		notify => Service[$icinga2_service],
 		require => Package[$icinga2_ido],
