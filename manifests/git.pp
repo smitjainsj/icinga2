@@ -7,4 +7,6 @@ vcsrepo { '/opt/icingaweb2':
   source   => 'git://git.icinga.org/icingaweb2.git',
   require => Service[$icinga2_service],
 	}
+
+	notify { " Cloning GIT REPO ........ " : }
 }

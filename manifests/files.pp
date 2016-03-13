@@ -51,8 +51,6 @@ file { ['/etc/icingaweb2/enabledModules'] :
          group => $icinga2web_grp,
          mode => '0755',
          }
-
-
 	
 }
 
