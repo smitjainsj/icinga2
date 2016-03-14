@@ -4,7 +4,7 @@ class icinga2::icingaweb2 inherits icinga2::params
 {	
 	contain icinga2::mysql
 
-	$packages = [ $icinga2web_package , $icinga2cli  ]
+	$packages = [ $icinga2web_package , $icinga2cli , $plugins  ]
 	
 	package { $packages: 
 		ensure => installed, 	

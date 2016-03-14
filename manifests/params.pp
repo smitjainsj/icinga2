@@ -60,7 +60,7 @@ case $::operatingsystem {
 	$mysql_client	= 'mysql'
 	$update		= 'chkconfig httpd on'
 	$icinga2cli	= 'icingacli'
-
+	$plugins	= 'nagios-plugins-all'
 }
 
   'Debian', 'Ubuntu': {
@@ -77,8 +77,10 @@ case $::operatingsystem {
 	$ido_perm	= 'nagios'
 	$update 	= 'update-rc.d apache2 defaults'
 	$mysql_client	= 'mysql-client'
-	$icinga2cli = undef
- 	}
+	$plugins	= 'nagios-plugins'
+	$icinga2cli	= undef
+ 	
+}
 
 
 
