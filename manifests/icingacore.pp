@@ -1,7 +1,9 @@
-class icinga2::repo  inherits icinga2::params 
-{
 
-case $::operatingsystem {
+class icinga2::icingacore inherits icinga2::params
+
+
+{
+ case $::operatingsystem {
 
   'CentOS','Redhat': {
 	exec { 'icinga2-repo':
@@ -14,7 +16,6 @@ case $::operatingsystem {
 		command => '/usr/bin/yum repolist all && yum makecache ',
 		refreshonly => true, }
 	
-	class{'icinga2::icinga': require => Exec['icinga-repo-update'], }
 	}
 
  'Debian', 'Ubuntu': {
@@ -26,9 +27,24 @@ case $::operatingsystem {
 	exec { 'icinga-repo-update':
 		command => '/usr/bin/apt-get update',
 		refreshonly => true, }	
-	
-	class{'icinga2::icinga':	require => Exec['icinga-repo-update'],}
-	
 		}
 	}	
+	$packages = [ $icinga2_package	]
+		
+	package { $packages: 
+		##provider => $provider ,
+		ensure => installed , 
+		requrire => Exec['icinga2-repo'],
+		}
+
+	$services =  [ $icinga2_service ] 
+	
+	service { $services :                
+		ensure => running,
+    		enable => true,
+		require => Package[$icinga2_package],	
+	}
+
 }
+
+
